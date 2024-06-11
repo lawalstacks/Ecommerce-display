@@ -1,7 +1,7 @@
 body{
     font-family: "Fira Sans Book", sans-serif;
     margin: 0;
-    background-color: darkgrey;
+    background-color: white;
     padding: 0;
 }
 
@@ -73,47 +73,33 @@ p{
     padding: 2px 5px;
 }
 
-a{
-    text-decoration: none;
-    color: inherit;
-    transition: border-bottom 0.5s;
-    transform-origin: initial;
+.random-header{
+  display: flex;
+  font-size: 40px;
+  font-weight: 700;
+  border: 2px solid black;
+  margin: 10px 50px;
+  height: 300px;
+  border-radius: 10px;
 }
 
-a:hover{
-    border-bottom: 5px solid gray;
+.headline{
+  border-right: 5px solid black;
+  height: 300px;
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+.random-image{
+  position: relative;
 }
 
-a:active{
-    color: gray;
-    cursor: pointer;
-}
-#cart-logo{
-    position: relative;
-}
-#notify{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: yellow;;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    border: 1px solid black;
-    animation: scale 1s linear infinite;
-}
-
-@keyframes scale {
-    10% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
+.overlay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.8);
+  height: 100px;
 }

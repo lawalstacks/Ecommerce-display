@@ -1,19 +1,23 @@
-import products from "./data/products.mjs";
+import products from "./data/products.js";
+import {cart,addToCart,calculateCartQuantity} from "./data/cart.js";
 
-
-
+calculateCartQuantity();
 let productHTML = '';
 
-generateHTML();
 
+let someCategories= [];
+someCategories = products.slice(6);
+console.log(someCategories);
+generateHTML();
 function  generateHTML(){
-products.forEach((product) => {
+
+someCategories.forEach((product) => {
 
   productHTML += `<div class="product-details" data-id=${product.id}>
                                 <p class="product-title">${product.title}</p>
                                 <img class="img" src="${product.image}" alt="${product.title}"/>
                                 <span class="added added-js-${product.id}">Added to Cart ✅</span>       
-                            <div><span class = "select-btn"><select class = "select-btn">
+                            <div><span class = "select-btn"><select class = "select-btn select-js-${product.id}">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -44,6 +48,8 @@ document.querySelectorAll(`.cart-btn`).forEach((button)=>{
         const {productId} = button.dataset;
         clearInterval(intervalId);
         document.querySelector(`.added-js-${productId}`).style.opacity = 1;
+        addToCart(productId);
+        calculateCartQuantity();
         console.log(productId);
         intervalId = setTimeout(function(){
             document.querySelector(`.added-js-${productId}`).style.opacity = 0;
